@@ -1,0 +1,42 @@
+{% include 'header.html' %}
+
+
+<select>
+    {% for year in year_range %}
+        <option = value="{{year}}"> {{ year }} </option>
+    {% endfor %}
+</select>
+
+
+<div class="container" style="align-items: center;">
+        <form action="/weather/present/" method="get" class="col s12" style="align-items:center; margin:auto">
+            {% csrf_token %}
+            <h4 style="text-align:center">Year</h4><br/>
+            <div class="row" style="width:35%;margin:auto;">
+                    <label class="flow-text">Year:</label>
+                    <input type="number" value="2017" name="year" />
+            </div>
+            <br/>
+            <div class="row" style="width:35%;margin:auto;">
+                    <label class="flow-text">Reading Type:</label>    
+                    <select class="browser-default waves-effect waves-light btn" name="reading_type">
+                        <option value="Tmax">Tmax</option>
+                        <option value="Tmin">Tmin</option>
+                        <option value="Tmean">Tmean</option>
+                        <option value="Rainfall">Rainfall</option>
+                        <option value="Sunshine">Sunshine</option>
+                    </select>
+                    <br/><hr/>
+            </div>
+            <br/>
+            <div style="text-align:center;width:35%;margin:auto;">
+                <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+                    <i class="material-icons right">></i>
+                </button>
+            </div>
+            <br/>
+        </form>
+        <br/><br/>
+<div class="container">
+{% include "chart.html" %}
+</div>

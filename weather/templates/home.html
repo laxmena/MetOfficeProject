@@ -1,0 +1,27 @@
+{% include 'header.html'%}
+
+<div class="container flow-text">
+    <h4>MetOffice Project</h4>
+    <hr/>
+
+    <strong>How to:</strong>
+    <ol style="margin-left:1em;">
+    <li>
+        Navigate to <a target="_blank" href="{% url 'db_operations' %}">Data Operations</a> link at the Navigation bar.
+    </li><br/>
+    <li> 
+        Select 'All Countries' and 'All Readings' from drop-down list, and click <strong>Load Database</strong>.
+    </li>
+        <span style="color:grey; font-size:0.8em"><em><strong>Note:</strong>This will take some time, as it will download data from internet and store it into database. Sit back and enjoy your cup of Coffee, while the MetOffice project App will do the heavy lifting for you.</em></span>
+    <br/><br/>
+    <li>
+        Navigate to <a target="_blank" href="{% url 'data_visualization' %}">Present</a> tab, where you can visualize the weather readings of different readings and compare them. They are intuitive, so feel free to try experimenting with different values, and see how the output chart changes!
+    </li><br/>
+    <li>
+        Met Office will update data of a month only when it is over, so if you want to import newly added data into your database, use <em>Update Database</em> in the <a target="_blank" href="{% url 'db_operations'%}">Data Operations</a> tab</li>
+        <span style="color:grey; font-size:0.8em"><em><strong>Note:</strong> This will only look for the latest data. Duplicates entries will not be created, and it's less time consuming than <em>Load Database</em> option, which can also perform the same operation.</em></span>
+    <li>
+        Check <a href="{% url 'about' %}">About Page</a>
+    </li>
+    </ol>
+</div>

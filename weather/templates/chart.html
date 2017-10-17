@@ -1,0 +1,33 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="linechart_material"></div>
+
+
+<script>
+    google.charts.load('current', {'packages':['line']});
+    google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Month');
+    data.addColumn('number', 'UK');
+    data.addColumn('number', 'England');
+    data.addColumn('number', 'Scotland');
+    data.addColumn('number', 'Wales');
+    
+    data.addRows( {{data}} );
+
+    var options = {
+      chart: {
+        title: 'Summary : {{ reading_type }} - {{ year }}',
+        subtitle: ''
+      },
+      width: 900,
+      height: 500
+    };
+
+    var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+    chart.draw(data, google.charts.Line.convertOptions(options));
+  }
+</script>
